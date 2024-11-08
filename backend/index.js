@@ -10,7 +10,7 @@ const corsOptions = {
     origin: [ 
         'http://localhost:5173',
         'http://localhost:5174',
-        'https://books-buy1.web.app'
+        'https://hotels-buy1.web.app'
     ],
     optionsSuccessStatus: 200 
   };
@@ -49,27 +49,27 @@ const client = new MongoClient(uri, {
           // res.status(200).json({ message: 'Hotel added' });
           res.send(result);
       })
-        app.get('/books',async (req,res)=>{
-            const books = await booksCollection.find().toArray();
-            res.send(books);
+        app.get('/hotels',async (req,res)=>{
+            const hotels = await hotelsCollection.find().toArray();
+            res.send(hotels);
         })
-        app.get('/added_books/:email',async (req,res)=>{
+        app.get('/added_hotels/:email',async (req,res)=>{
             const email = req.params.email;
-            const books = await booksCollection.find({uploaderEmail:email}).toArray();
-            res.send(books);
+            const hotels = await hotelsCollection.find({uploaderEmail:email}).toArray();
+            res.send(hotels);
         })
         app.get('/details/:id',async (req,res)=>{
             const id = req.params.id;
-            const book = await booksCollection.findOne({_id: new ObjectId(id)});
-            res.send(book);
+            const hotel = await hotelsCollection.findOne({_id: new ObjectId(id)});
+            res.send(hotel);
         })
         app.get('/available',async (req,res)=>{
-            const books = await booksCollection.find({copies : {$gt:0}}).toArray();
-            res.send(books);
+            const hotels = await hotelsCollection.find({copies : {$gt:0}}).toArray();
+            res.send(hotels);
         })
         app.get('/rented/:email',async(req,res)=>{
             const email = req.params.email;
-            const result = await booksCollection.find({
+            const result = await hotelsCollection.find({
                 rentedBy: email
             }).toArray();
             res.send(result);
@@ -78,11 +78,11 @@ const client = new MongoClient(uri, {
         
 
         app.patch('/update/:id',async (req,res)=>{
-            const bookId = req.params.id;
+            const hotelId = req.params.id;
             const Info = req.body;
 
-            const result =  await booksCollection.updateOne(
-                { _id: new ObjectId(bookId) },
+            const result =  await hotelsCollection.updateOne(
+                { _id: new ObjectId(hotelId) },
                 { $set: Info }
             )
 
@@ -92,7 +92,7 @@ const client = new MongoClient(uri, {
         app.patch('/return/:id',async(req,res)=>{
             const id = req.params.id;
             const {email} = req.body;
-            const result = await booksCollection.updateOne(
+            const result = await hotelsCollection.updateOne(
                 {_id: new ObjectId(id)},
                 {
                     $pull:{rentedBy:email},
@@ -105,7 +105,7 @@ const client = new MongoClient(uri, {
         app.patch('/rent/:id',async(req,res)=>{
             const id = req.params.id;
             const {email} = req.body;
-            const result = await booksCollection.updateOne(
+            const result = await hotelsCollection.updateOne(
                 {_id: new ObjectId(id)},
                 {
                     $push:{rentedBy:email},
@@ -117,8 +117,8 @@ const client = new MongoClient(uri, {
         })
 
         app.delete('/delete/:id',async (req,res) =>{
-            const bookId = req.params.id;
-            const result = await booksCollection.deleteOne({_id: new ObjectId(bookId)});
+            const hotelId = req.params.id;
+            const result = await hotelsCollection.deleteOne({_id: new ObjectId(hotelId)});
             res.send(result);
         })
 

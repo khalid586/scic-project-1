@@ -68,7 +68,7 @@ function RegisterPage() {
             
         <>
             <Helmet>
-                <title>Books Buy | Register</title>
+                <title>Hotel booking | Register</title>
             </Helmet>
             <div className='text-center text-4xl my-4 font-bold'>Register</div>
             

@@ -42,7 +42,7 @@ function ProfilePage() {
     return(
         <div>
         <Helmet>
-            <title>Books Buy | User profile</title>
+            <title>Hotel booking | User profile</title>
         </Helmet>
         {
             loading ? <Spinner></Spinner> : 

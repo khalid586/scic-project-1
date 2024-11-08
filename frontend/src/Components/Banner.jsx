@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link, useLoaderData } from 'react-router-dom'
 
 
-function Banner({books}) {
+function Banner({hotels}) {
 
   const isMobile = window.innerWidth <= 768;
   
@@ -15,8 +15,8 @@ function Banner({books}) {
   return (
     <div className='h-[50vh] bg-yellow-100 ease-in-out duration-500 flex justify-between my-4 mx-4 rounded-xl p-4'>
       <div className='p-2 flex flex-col justify-center items-center gap-8'>
-        <p className='text-sm md:text-2xl lg:text-4xl xl:text-4xl text-center font-extrabold'>Books to freshen up your bookshelf</p>
-        <Link to = '/available' className='md:w-1/3 text-center md:mt-16 rounded-xl p-2 bg-black text-white font-semibold text-xs md:text-base'>Available Books</Link>
+        <p className='text-sm md:text-2xl lg:text-4xl xl:text-4xl text-center font-extrabold'>hotels to freshen up your hotelshelf</p>
+        <Link to = '/available' className='md:w-1/3 text-center md:mt-16 rounded-xl p-2 bg-black text-white font-semibold text-xs md:text-base'>Available hotels</Link>
       </div>
     
       <div className='mt-12 md:mt-8 mr-4'>

@@ -11,10 +11,10 @@ function Navbar() {
     const list = 
     <div className='flex flex-col lg:flex-row gap-2 font-semibold'>
         <li><NavLink to="/" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2  flex   justify-center'}><p className='flex gap-0.5 items-center'><IoHomeOutline className='text-blue-600 font-extrabold'></IoHomeOutline> Home</p></NavLink></li>
-        <li><NavLink to="/add_book" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2  flex   justify-center'}><p className='flex gap-0.5 items-center'><IoMdAddCircleOutline className='text-green-600 font-extrabold'></IoMdAddCircleOutline> Add Book</p></NavLink></li>
+        <li><NavLink to="/add_hotel" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2  flex   justify-center'}><p className='flex gap-0.5 items-center'><IoMdAddCircleOutline className='text-green-600 font-extrabold'></IoMdAddCircleOutline> Add Hotel</p></NavLink></li>
         {
             user && 
-            <li><NavLink to="/available" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2  flex   justify-center'}><p className='flex gap-0.5 items-center'><MdOutlineFilePresent className='text-red-400 font-extrabold'></MdOutlineFilePresent> Available Books</p></NavLink></li>
+            <li><NavLink to="/available" className={({isActive})=>isActive?'text-blue-600 duration-500 rounded-full px-4 py-2 bg-blue-50 flex justify-center':'text-black px-4 py-2  flex   justify-center'}><p className='flex gap-0.5 items-center'><MdOutlineFilePresent className='text-red-400 font-extrabold'></MdOutlineFilePresent> Available hotels</p></NavLink></li>
         }
     </div>
 
@@ -50,7 +50,7 @@ function Navbar() {
                 </ul>
             </div>
             <Link className="font-bold text-xl mx-[-4px]" to = '/'>
-                <p className='flex gap-1'> <img src = '/hotelLogo.PNG' width={20}></img>Hotel <span className='text-blue-600'>Booking</span></p>
+                <p className='flex gap-1'> <img src = '/hotelLogo.PNG' width={20}></img>Hotel <span className='text-blue-600'>booking</span></p>
             </Link>
         </div>
 
@@ -81,8 +81,8 @@ function Navbar() {
                         </div>
                         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to="/profile" onClick={closeDropdown}>Profile</Link></li>
-                            <li><Link to = {`/rented_books`} onClick={closeDropdown}>My Rented Books</Link></li>
-                            <li><Link to = {`/added_books`} onClick={closeDropdown}>My Added Books</Link></li>
+                            <li><Link to = {`/rented_hotels`} onClick={closeDropdown}>My Rented hotels</Link></li>
+                            <li><Link to = {`/added_hotels`} onClick={closeDropdown}>My Added hotels</Link></li>
                         </ul>
                     </div>
                     :
